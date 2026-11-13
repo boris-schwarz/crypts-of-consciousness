@@ -23,16 +23,16 @@ async fn main() {
         clear_background(BLACK);
 
         if is_key_pressed(KeyCode::Up) {
-            player.move_north();
+            player.position.move_up();
         }
         if is_key_pressed(KeyCode::Right) {
-            player.move_east();
+            player.position.move_right();
         }
         if is_key_pressed(KeyCode::Down) {
-            player.move_south();
+            player.position.move_down();
         }
         if is_key_pressed(KeyCode::Left) {
-            player.move_west();
+            player.position.move_left();
         }
 
         /* if delta >= INTERVAL.as_secs_f64() {

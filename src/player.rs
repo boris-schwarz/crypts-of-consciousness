@@ -1,10 +1,10 @@
 use macroquad::prelude::*;
 
 pub enum Direction {
-    North,
-    East,
-    South,
-    West,
+    Up,
+    Right,
+    Down,
+    Left,
 }
 
 pub struct Position {
@@ -17,10 +17,27 @@ impl Position {
         Position {
             x,
             y,
-            direction: Direction::South,
+            direction: Direction::Down,
         }
     }
+    pub fn move_up(&mut self) {
+        self.direction = Direction::Up;
+        self.y -= 1;
+    }
+    pub fn move_right(&mut self) {
+        self.direction = Direction::Right;
+        self.x += 1;
+    }
+    pub fn move_down(&mut self) {
+        self.direction = Direction::Down;
+        self.y += 1;
+    }
+    pub fn move_left(&mut self) {
+        self.direction = Direction::Left;
+        self.x -= 1;
+    }
 }
+
 pub struct Player {
     pub position: Position,
 }
@@ -40,18 +57,5 @@ impl Player {
             48.0 - 10.0,
             ORANGE,
         );
-    }
-
-    pub fn move_north(&mut self) {
-        self.position.y -= 1;
-    }
-    pub fn move_east(&mut self) {
-        self.position.x += 1;
-    }
-    pub fn move_south(&mut self) {
-        self.position.y += 1;
-    }
-    pub fn move_west(&mut self) {
-        self.position.x -= 1;
     }
 }
