@@ -12,7 +12,7 @@ use tileset::Tileset;
 #[macroquad::main("Crypts of Consciousness")]
 async fn main() {
     let tileset: Tileset = Tileset::new(4, 3, 48.0);
-    let mut player: Player = Player::new(0, 0);
+    let mut player: Player = Player::new(0, 0).await;
     let mut last_frame = get_time();
 
     request_new_screen_size(800.0, 600.0);
@@ -23,16 +23,32 @@ async fn main() {
         clear_background(BLACK);
 
         if is_key_pressed(KeyCode::Up) {
-            player.position.move_up();
+            if tileset.is_walkable(player.position.north()) {
+                player.position.move_north();
+            } else {
+                player.position.turn_north();
+            }
         }
         if is_key_pressed(KeyCode::Right) {
-            player.position.move_right();
+            if tileset.is_walkable(player.position.east()) {
+                player.position.move_east();
+            } else {
+                player.position.turn_east();
+            }
         }
         if is_key_pressed(KeyCode::Down) {
-            player.position.move_down();
+            if tileset.is_walkable(player.position.south()) {
+                player.position.move_south();
+            } else {
+                player.position.turn_south();
+            }
         }
         if is_key_pressed(KeyCode::Left) {
-            player.position.move_left();
+            if tileset.is_walkable(player.position.west()) {
+                player.position.move_west();
+            } else {
+                player.position.turn_west();
+            }
         }
 
         /* if delta >= INTERVAL.as_secs_f64() {

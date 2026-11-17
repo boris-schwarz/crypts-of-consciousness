@@ -1,3 +1,4 @@
+use crate::player::Position;
 use macroquad::prelude::*;
 
 #[derive(Copy, Clone)]
@@ -24,9 +25,19 @@ impl Tileset {
             //grid: vec![vec![Tile::Grass; h]; w],
             grid: vec![
                 vec![Tile::Grass, Tile::Grass, Tile::Wall, Tile::Wall],
-                vec![Tile::Grass, Tile::Grass, Tile::Wall, Tile::Grass],
-                vec![Tile::Wall, Tile::Wall, Tile::Wall, Tile::Grass],
+                vec![Tile::Grass, Tile::Grass, Tile::Grass, Tile::Grass],
+                vec![Tile::Wall, Tile::Grass, Tile::Wall, Tile::Grass],
             ],
+        }
+    }
+
+    pub fn is_walkable(&self, position: Position) -> bool {
+        if position.x > self.w - 1 || position.y > self.h - 1 {
+            return false;
+        }
+        match &self.grid[position.y][position.x] {
+            Tile::Grass => true,
+            _ => false,
         }
     }
 
