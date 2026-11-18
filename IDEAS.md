@@ -66,3 +66,58 @@ At the bottom stands a sarcophagus. Similar to the one on the first level. He op
 Inside lies himself, eyes open: the original one.
 
 They look at each other, the whole universe collapses and turns into nothingness, destroying the protagonists wish to exist and turns into pure despair. Time ended with the world, so there is no later in which this could ease. What remains is despair, complete and without end.
+
+
+---
+
+# Older Ideas from hexagonal tile game
+
+2d
+hexagonal tiles
+roguelite
+
+## path tiling
+you start at the center tile 
+have always 3 path tiles in your hand
+some edges of the tile are a wall, some are able to connect to other path tiles
+some have 1-2 exists, some 3-4, some even 5
+you build the path each round
+entering a new tile starts the tile's event
+the further you stray from the center the harder enemies you will encounter
+the fightis it's own mini game
+
+## events
+fights (most common)
+vaults (only on tiles that have 1 exit) - big boss fight with big reward
+merchant
+found an item (very rare, bc powerful)
+trap (very rare, bc annoying)
+
+## fights
+turn based, similar to golden sun
+rewards: items, such as new weapons, armour, elixirs, spell scrolls for one time use, tomes to teach you permanent new spells and gold and xp
+
+## classes
+starter classes: warrior and wizard, melee and ranged
+later on more will be added
+each class has one special ability
+the character also has a level and gets stronger as you level up 
+the character gets reset after each playtrough
+
+## progress
+there will be a system to permanently upgrade either overall stats or specific character stats
+not sure yet
+it's called the crypt of consciousness
+
+
+## gameplay loop
+not sure about an interesting gameplay loop yet, ideas
+- center tile is "start"
+- each circle around the center tile has a difficulty level
+- you can decide to stay within the circle or reach outward
+- once you get into the next circle, the previous inner circles gets corrupted by +1
+- if you go two circles outside, that means circle 3 (current) is normal, circle 2 (previous) is corrupted+1, circle 1 (pre-previous) is corrupted+2
+- corrupted circles are harder
+-- you can remove a corruption level on a circle by clearing it again (?)
+- once you reached the most outer circle, you have to go back to the "start" again
+- if you decide to clear a second tile on the most outer circle, the inner circles get another corruption stack
